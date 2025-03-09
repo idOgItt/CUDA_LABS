@@ -152,38 +152,33 @@ private:
     }
 };
 
-template <typename T,
-          typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
-std::vector<T> ReadVector(const int32_t kSize) {
-    std::vector<T> vector(kSize);
+int32_t ReadInputSize() {
+    int32_t input_size;
+    std::cin >> input_size;
+    constexpr int32_t kMaxValue = 1 << 25;
+    if (input_size <= 0 || input_size >= kMaxValue) {
+        throw std::invalid_argument("Incorrect size of input data");
+    }
+    return input_size;
+}
+
+template <typename T>
+std::vector<T> ReadVector(int32_t size) {
+    std::vector<T> vector(size);
     for (T& value : vector) {
         std::cin >> value;
     }
     return vector;
 }
 
-template <typename T,
-          typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
+template <typename T>
 void PrintVector(const std::vector<T>& vec) {
     constexpr int32_t kPrecision = 10;
     std::cout.precision(kPrecision);
     std::cout << std::scientific;
-
     std::copy(vec.begin(), vec.end() - 1,
               std::ostream_iterator<T>(std::cout, " "));
     std::cout << vec.back() << std::endl;
-}
-
-int32_t ReadInputSize() {
-    int32_t input_size;
-    std::cin >> input_size;
-
-    constexpr int32_t kMaxSize = (1 << 25);
-    if (input_size <= 0 || input_size >= kMaxSize) {
-        throw std::invalid_argument("Incorrect size of input data");
-    }
-
-    return input_size;
 }
 
 int main() {
