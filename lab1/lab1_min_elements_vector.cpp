@@ -12,18 +12,36 @@
 
 constexpr int32_t kThreadsPerBlock = 1024;
 
-__global__ void VectorPerElemMinDouble(const double* first_vector,
-                                       const double* second_vector,
-                                       double* result,
+
+template <typename T, typename std::enable_if<std::is_integral<T>::value, int>::type = 0>
+__device__ T cuda_min(T a, T b) {
+    return min(a, b);
+}
+
+template <typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0>
+__device__ T cuda_min(T a, T b) {
+    return fminf(a, b);
+}
+
+template <typename T, typename std::enable_if<std::is_same<T, double>::value, int>::type = 0>
+__device__ T cuda_min(T a, T b) {
+    return fmin(a, b);
+}
+
+template <typename T, typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
+__global__ void VectorPerElemMinKernel(const T* first_vector,
+                                       const T* second_vector,
+                                       T* result,
                                        const int32_t* data_size) {
     int64_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     int32_t stride = gridDim.x * blockDim.x;
 
     for (int32_t size = *data_size; idx < size; idx += stride) {
-        result[idx] = fmin(first_vector[idx], second_vector[idx]);
+        result[idx] = cuda_min(first_vector[idx], second_vector[idx]);
     }
 }
 
+template <typename T, typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
 class CudaGraph {
 public:
     CudaGraph() { cudaStreamCreate(&stream_); }
