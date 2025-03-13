@@ -1,0 +1,5 @@
+# ninja log v6
+1	1024	1741892108968047382	hip_code.cpp	a8abd4fb0c723b77
+1	1024	1741892108968047382	/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/hip_code.cpp	a8abd4fb0c723b77
+1025	6492	1741892108974712902	CMakeFiles/lab1.dir/hip_code.cpp.o	35b8d605aafe7583
+6494	6555	1741892114447102775	lab1	720e0c6cc33dd161

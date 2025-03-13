@@ -1,5 +1,5 @@
-#include <cuda_runtime.h>
-#include "device_launch_parameters.h"
+#include <hip/hip_runtime.h>
+
 
 #include <cmath>
 #include <cstdint>
@@ -27,30 +27,30 @@ __global__ void VectorPerElemMinDouble(const double* first_vector,
 
 class CudaGraph {
 public:
-    CudaGraph() { cudaStreamCreate(&stream_); }
+    CudaGraph() { hipStreamCreate(&stream_); }
 
     ~CudaGraph() {
-        if (graphExec_) cudaGraphExecDestroy(graphExec_);
-        if (graph_) cudaGraphDestroy(graph_);
-        cudaStreamDestroy(stream_);
+        if (graphExec_) hipGraphExecDestroy(graphExec_);
+        if (graph_) hipGraphDestroy(graph_);
+        hipStreamDestroy(stream_);
     }
 
-    void Capture(std::function<void(cudaStream_t)> kernel_launcher) {
-        cudaStreamBeginCapture(stream_, cudaStreamCaptureModeGlobal);
+    void Capture(std::function<void(hipStream_t)> kernel_launcher) {
+        hipStreamBeginCapture(stream_, hipStreamCaptureModeGlobal);
         kernel_launcher(stream_);
-        cudaStreamEndCapture(stream_, &graph_);
-        cudaGraphInstantiate(&graphExec_, graph_, nullptr, nullptr, 0);
+        hipStreamEndCapture(stream_, &graph_);
+        hipGraphInstantiate(&graphExec_, graph_, nullptr, nullptr, 0);
     }
 
     void Launch() {
-        cudaGraphLaunch(graphExec_, stream_);
-        cudaDeviceSynchronize();
+        hipGraphLaunch(graphExec_, stream_);
+        hipDeviceSynchronize();
     }
 
 private:
-    cudaStream_t stream_;
-    cudaGraph_t graph_{nullptr};
-    cudaGraphExec_t graphExec_{nullptr};
+    hipStream_t stream_;
+    hipGraph_t graph_{nullptr};
+    hipGraphExec_t graphExec_{nullptr};
 };
 
 template <typename T,
@@ -73,7 +73,7 @@ private:
     struct CudaDeleter {
         void operator()(T* ptr) const noexcept {
             if (ptr) {
-                cudaFree(ptr);
+                hipFree(ptr);
             }
         }
     };
@@ -82,20 +82,20 @@ private:
 
     void Allocate(const std::size_t kSize) {
         T* temp_ptr = nullptr;
-        if (cudaMalloc(&temp_ptr, kSize * sizeof(T)) != cudaSuccess) {
+        if (hipMalloc(&temp_ptr, kSize * sizeof(T)) != hipSuccess) {
             throw std::runtime_error("Failed to allocate CUDA memory");
         }
         buffer_.reset(temp_ptr);
     }
 
     void CopyToDevice(const T* host_ptr, std::size_t size) {
-        cudaMemcpy(buffer_.get(), host_ptr, size * sizeof(T),
-                   cudaMemcpyHostToDevice);
+        hipMemcpy(buffer_.get(), host_ptr, size * sizeof(T),
+                   hipMemcpyHostToDevice);
     }
 
     void CopyToHost(T* host_ptr, std::size_t size) {
-        cudaMemcpy(host_ptr, buffer_.get(), size * sizeof(T),
-                   cudaMemcpyDeviceToHost);
+        hipMemcpy(host_ptr, buffer_.get(), size * sizeof(T),
+                   hipMemcpyDeviceToHost);
     }
 };
 
@@ -138,14 +138,14 @@ private:
     }
 
     void GetDeviceProperties() {
-        cudaDeviceProp device_prop;
-        cudaGetDeviceProperties(&device_prop, 0);
+        hipDeviceProp_t device_prop;
+        hipGetDeviceProperties(&device_prop, 0);
         numSM_ = device_prop.multiProcessorCount;
     }
 
     void CaptureCudaGraph() {
         int32_t grid_size = numSM_ * 4;
-        graph_.Capture([&](cudaStream_t stream) {
+        graph_.Capture([&](hipStream_t stream) {
             VectorPerElemMinDouble<<<grid_size, kThreadsPerBlock, 0, stream>>>(
                 device_vector_a_.Get(), device_vector_b_.Get(),
                 device_result_.Get(), device_data_size_.Get());
