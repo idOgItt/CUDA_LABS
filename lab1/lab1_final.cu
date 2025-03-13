@@ -1,6 +1,7 @@
 #include <cuda_runtime.h>
 #include "device_launch_parameters.h"
 
+
 #include <cmath>
 #include <cstdint>
 #include <functional>
@@ -13,15 +14,32 @@
 
 constexpr int32_t kThreadsPerBlock = 1024;
 
-__global__ void VectorPerElemMinDouble(const double* first_vector,
-                                       const double* second_vector,
-                                       double* result,
+
+template <typename T, typename std::enable_if<std::is_integral<T>::value, int>::type = 0>
+__device__ T cuda_min(T a, T b) {
+    return min(a, b);
+}
+
+template <typename T, typename std::enable_if<std::is_same<T, float>::value, int>::type = 0>
+__device__ T cuda_min(T a, T b) {
+    return fminf(a, b);
+}
+
+template <typename T, typename std::enable_if<std::is_same<T, double>::value, int>::type = 0>
+__device__ T cuda_min(T a, T b) {
+    return fmin(a, b);
+}
+
+template <typename T, typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
+__global__ void VectorPerElemMinKernel(const T* first_vector,
+                                       const T* second_vector,
+                                       T* result,
                                        const int32_t* data_size) {
     int64_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     int32_t stride = gridDim.x * blockDim.x;
 
     for (int32_t size = *data_size; idx < size; idx += stride) {
-        result[idx] = fmin(first_vector[idx], second_vector[idx]);
+        result[idx] = cuda_min(first_vector[idx], second_vector[idx]);
     }
 }
 
@@ -35,7 +53,7 @@ public:
         cudaStreamDestroy(stream_);
     }
 
-    void Capture(std::function<void(cudaStream_t)> kernel_launcher) {
+    void Capture(const std::function<void(cudaStream_t)> &kernel_launcher) {
         cudaStreamBeginCapture(stream_, cudaStreamCaptureModeGlobal);
         kernel_launcher(stream_);
         cudaStreamEndCapture(stream_, &graph_);
@@ -146,7 +164,7 @@ private:
     void CaptureCudaGraph() {
         int32_t grid_size = numSM_ * 4;
         graph_.Capture([&](cudaStream_t stream) {
-            VectorPerElemMinDouble<<<grid_size, kThreadsPerBlock, 0, stream>>>(
+            VectorPerElemMinKernel<<<grid_size, kThreadsPerBlock, 0, stream>>>(
                 device_vector_a_.Get(), device_vector_b_.Get(),
                 device_result_.Get(), device_data_size_.Get());
         });
