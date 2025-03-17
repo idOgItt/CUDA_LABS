@@ -1,7 +1,7 @@
 #include <cuda_runtime.h>
 #include "device_launch_parameters.h"
 
-#include <chrono>
+
 #include <cmath>
 #include <cstdint>
 #include <functional>
@@ -13,6 +13,7 @@
 #include <vector>
 
 constexpr int32_t kThreadsPerBlock = 1024;
+
 
 template <typename T, typename std::enable_if<std::is_integral<T>::value, int>::type = 0>
 __device__ T cuda_min(T a, T b) {
@@ -33,117 +34,188 @@ template <typename T, typename std::enable_if<std::is_arithmetic<T>::value, int>
 __global__ void VectorPerElemMinKernel(const T* first_vector,
                                        const T* second_vector,
                                        T* result,
-                                       int32_t size) {
+                                       const int32_t* data_size) {
     int64_t idx = blockIdx.x * blockDim.x + threadIdx.x;
     int32_t stride = gridDim.x * blockDim.x;
 
-    for (; idx < size; idx += stride) {
+    for (int32_t size = *data_size; idx < size; idx += stride) {
         result[idx] = cuda_min(first_vector[idx], second_vector[idx]);
     }
 }
 
-class CudaVectorMin {
+class CudaGraph {
 public:
-    explicit CudaVectorMin(int32_t size) : vector_size_(size) {
-        cudaMalloc(&device_vector_a_, vector_size_ * sizeof(double));
-        cudaMalloc(&device_vector_b_, vector_size_ * sizeof(double));
-        cudaMalloc(&device_result_, vector_size_ * sizeof(double));
+    CudaGraph() { cudaStreamCreate(&stream_); }
+
+    ~CudaGraph() {
+        if (graphExec_) cudaGraphExecDestroy(graphExec_);
+        if (graph_) cudaGraphDestroy(graph_);
+        cudaStreamDestroy(stream_);
     }
 
-    ~CudaVectorMin() {
-        cudaFree(device_vector_a_);
-        cudaFree(device_vector_b_);
-        cudaFree(device_result_);
+    void Capture(const std::function<void(cudaStream_t)> &kernel_launcher) {
+        cudaStreamBeginCapture(stream_, cudaStreamCaptureModeGlobal);
+        kernel_launcher(stream_);
+        cudaStreamEndCapture(stream_, &graph_);
+        cudaGraphInstantiate(&graphExec_, graph_, nullptr, nullptr, 0);
     }
 
-    void CopyDataToDevice(const std::vector<double>& host_vector_a,
-                          const std::vector<double>& host_vector_b) {
-        cudaMemcpy(device_vector_a_, host_vector_a.data(), vector_size_ * sizeof(double), cudaMemcpyHostToDevice);
-        cudaMemcpy(device_vector_b_, host_vector_b.data(), vector_size_ * sizeof(double), cudaMemcpyHostToDevice);
-    }
-
-    void Compute(int blocks, int threads) {
-        VectorPerElemMinKernel<<<blocks, threads>>>(device_vector_a_, device_vector_b_, device_result_, vector_size_);
+    void Launch() {
+        cudaGraphLaunch(graphExec_, stream_);
         cudaDeviceSynchronize();
     }
 
-    void CopyDataToHost(std::vector<double>& host_result) {
-        cudaMemcpy(host_result.data(), device_result_, vector_size_ * sizeof(double), cudaMemcpyDeviceToHost);
+private:
+    cudaStream_t stream_;
+    cudaGraph_t graph_{nullptr};
+    cudaGraphExec_t graphExec_{nullptr};
+};
+
+template <typename T,
+          typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
+class CudaBuffer {
+public:
+    explicit CudaBuffer(const std::size_t kSize) { Allocate(kSize); }
+
+    T* Get() const noexcept { return buffer_.get(); }
+
+    void CopyFromHost(const std::vector<T>& host_vector) {
+        CopyToDevice(host_vector.data(), host_vector.size());
+    }
+
+    void CopyToHost(std::vector<T>& host_vector) {
+        CopyToHost(host_vector.data(), host_vector.size());
+    }
+
+private:
+    struct CudaDeleter {
+        void operator()(T* ptr) const noexcept {
+            if (ptr) {
+                cudaFree(ptr);
+            }
+        }
+    };
+
+    std::unique_ptr<T, CudaDeleter> buffer_;
+
+    void Allocate(const std::size_t kSize) {
+        T* temp_ptr = nullptr;
+        if (cudaMalloc(&temp_ptr, kSize * sizeof(T)) != cudaSuccess) {
+            throw std::runtime_error("Failed to allocate CUDA memory");
+        }
+        buffer_.reset(temp_ptr);
+    }
+
+    void CopyToDevice(const T* host_ptr, std::size_t size) {
+        cudaMemcpy(buffer_.get(), host_ptr, size * sizeof(T),
+                   cudaMemcpyHostToDevice);
+    }
+
+    void CopyToHost(T* host_ptr, std::size_t size) {
+        cudaMemcpy(host_ptr, buffer_.get(), size * sizeof(T),
+                   cudaMemcpyDeviceToHost);
+    }
+};
+
+template <typename T,
+          typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
+class CudaVectorMin {
+public:
+    explicit CudaVectorMin(int32_t size)
+        : vector_size_(size),
+          device_vector_a_(size),
+          device_vector_b_(size),
+          device_result_(size),
+          device_data_size_(1) {
+        Init();
+    }
+
+    std::vector<T> Compute(const std::vector<T>& host_vector_a,
+                           const std::vector<T>& host_vector_b) {
+        device_vector_a_.CopyFromHost(host_vector_a);
+        device_vector_b_.CopyFromHost(host_vector_b);
+        graph_.Launch();
+        std::vector<T> host_result(vector_size_);
+        device_result_.CopyToHost(host_result);
+        return host_result;
     }
 
 private:
     int32_t vector_size_;
-    double* device_vector_a_;
-    double* device_vector_b_;
-    double* device_result_;
+    int32_t numSM_{};
+    CudaBuffer<T> device_vector_a_;
+    CudaBuffer<T> device_vector_b_;
+    CudaBuffer<T> device_result_;
+    CudaBuffer<int32_t> device_data_size_;
+    CudaGraph graph_;
+
+    void Init() {
+        GetDeviceProperties();
+        device_data_size_.CopyFromHost(std::vector<int32_t>{vector_size_});
+        CaptureCudaGraph();
+    }
+
+    void GetDeviceProperties() {
+        cudaDeviceProp device_prop;
+        cudaGetDeviceProperties(&device_prop, 0);
+        numSM_ = device_prop.multiProcessorCount;
+    }
+
+    void CaptureCudaGraph() {
+        int32_t grid_size = numSM_ * 4;
+        graph_.Capture([&](cudaStream_t stream) {
+            VectorPerElemMinKernel<<<grid_size, kThreadsPerBlock, 0, stream>>>(
+                device_vector_a_.Get(), device_vector_b_.Get(),
+                device_result_.Get(), device_data_size_.Get());
+        });
+    }
 };
 
-double MeasureCUDA(CudaVectorMin& cuda_vector_min,
-                   const std::vector<double>& a,
-                   const std::vector<double>& b,
-                   int blocks, int threads) {
-    cudaEvent_t start, stop;
-    float elapsedTime;
-
-    cudaEventCreate(&start);
-    cudaEventCreate(&stop);
-
-    cudaEventRecord(start, 0);
-    cuda_vector_min.CopyDataToDevice(a, b);
-    cuda_vector_min.Compute(blocks, threads);
-    cudaEventRecord(stop, 0);
-    cudaEventSynchronize(stop);
-
-    cudaEventElapsedTime(&elapsedTime, start, stop);
-
-    cudaEventDestroy(start);
-    cudaEventDestroy(stop);
-
-    return elapsedTime;
+template <typename T,
+          typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
+std::vector<T> ReadVector(const int32_t kSize) {
+    std::vector<T> vector(kSize);
+    for (T& value : vector) {
+        std::cin >> value;
+    }
+    return vector;
 }
 
-double MeasureCPU(const std::vector<double>& a, const std::vector<double>& b) {
-    auto start = std::chrono::high_resolution_clock::now();
-    std::vector<double> result(a.size());
-    for (size_t i = 0; i < a.size(); ++i) {
-        result[i] = std::min(a[i], b[i]);
-    }
-    auto end = std::chrono::high_resolution_clock::now();
-    return std::chrono::duration<double, std::milli>(end - start).count();
+template <typename T,
+          typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
+void PrintVector(const std::vector<T>& vec) {
+    constexpr int32_t kPrecision = 10;
+    std::cout.precision(kPrecision);
+    std::cout << std::scientific;
+
+    std::copy(vec.begin(), vec.end() - 1,
+              std::ostream_iterator<T>(std::cout, " "));
+    std::cout << vec.back() << std::endl;
 }
 
-void RunTests() {
-    std::vector<int> sizes = {1'000, 10'000, 100'000, 1'000'000, 3'000'000};
-    std::vector<std::pair<int, int>> gridConfigs = {
-        {1, 32}, {32, 32}, {256, 256}, {1024, 1024}
-    };
+int32_t ReadInputSize() {
+    int32_t input_size;
+    std::cin >> input_size;
 
-    for (int size : sizes) {
-        std::vector<double> vecA(size, 1.0);
-        std::vector<double> vecB(size, 2.0);
-
-        double cpuTime = MeasureCPU(vecA, vecB);
-        std::cout << "CPU Time (" << size << " elements): " << cpuTime << " ms\n";
-
-        for (auto config : gridConfigs) {
-            int blocks = config.first;
-            int threads = config.second;
-
-            CudaVectorMin cuda_vector_min(size);
-            double cudaTime = MeasureCUDA(cuda_vector_min, vecA, vecB, blocks, threads);
-
-            std::cout << "CUDA Time (" << size << " elements, "
-                      << "<<<" << blocks << ", " << threads << ">>>): "
-                      << cudaTime << " ms\n";
-        }
-
-        std::cout << "--------------------------------\n";
+    constexpr int32_t kMaxSize = (1 << 25);
+    if (input_size <= 0 || input_size >= kMaxSize) {
+        throw std::invalid_argument("Incorrect size of input data");
     }
+
+    return input_size;
 }
 
 int main() {
     try {
-        RunTests();
+        const int32_t kInputSize = ReadInputSize();
+        const std::vector<double> kHostVectorA = ReadVector<double>(kInputSize);
+        const std::vector<double> kHostVectorB = ReadVector<double>(kInputSize);
+
+        CudaVectorMin<double> cuda_vector_min(kInputSize);
+        const std::vector<double> kResult =
+            cuda_vector_min.Compute(kHostVectorA, kHostVectorB);
+
+        PrintVector(kResult);
     } catch (const std::exception& e) {
         std::cerr << "Error: " << e.what() << std::endl;
         return 1;

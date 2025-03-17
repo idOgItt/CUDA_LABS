@@ -14,6 +14,6 @@
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
 -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
 -- Found Threads: TRUE
--- Configuring done (3.0s)
+-- Configuring done (2.9s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-release

@@ -15,7 +15,6 @@ enable_language(HIP)
 find_package(HIP REQUIRED)
 find_package(hipBLAS REQUIRED)
 
-# Добавляем пути к заголовкам
 include_directories(
         ${HIP_INCLUDE_DIRS}
         /opt/rocm/include
@@ -23,7 +22,6 @@ include_directories(
         /opt/cuda/targets/x86_64-linux/include
 )
 
-# Поиск библиотек HIP
 find_library(HIPRTC_LIB NAMES hiprtc HINTS /opt/rocm/lib)
 find_library(HIPBLAS_LIB NAMES hipblas HINTS /opt/rocm/lib)
 
@@ -35,13 +33,11 @@ if (NOT HIPBLAS_LIB)
     message(FATAL_ERROR "hipBLAS не найден! Проверь установку ROCm.")
 endif()
 
-# Проверяем наличие исходного файла
 set(SOURCE_FILE ${CMAKE_SOURCE_DIR}/lab1_final.cu)
 if (NOT EXISTS "${SOURCE_FILE}")
     message(FATAL_ERROR "Файл lab1_final.cu не найден! Проверьте путь.")
 endif()
 
-# Автоматическая конвертация CUDA -> HIP
 set(HIPIFIED_SRC "${CMAKE_BINARY_DIR}/hip_code.cpp")
 add_custom_command(
         OUTPUT ${HIPIFIED_SRC}
@@ -49,9 +45,7 @@ add_custom_command(
         DEPENDS ${SOURCE_FILE}
 )
 
-# Создаём исполняемый файл и указываем hipcc как компилятор
 add_executable(lab1 ${HIPIFIED_SRC})
 set_target_properties(lab1 PROPERTIES LINKER_LANGUAGE HIP)
 
-# Линкуем HIP и hipBLAS
 target_link_libraries(lab1 PRIVATE ${HIPRTC_LIB} ${HIPBLAS_LIB} hip::host hip::device)
