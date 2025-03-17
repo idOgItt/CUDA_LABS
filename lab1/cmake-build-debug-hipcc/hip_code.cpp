@@ -1,5 +1,5 @@
-#include <cuda_runtime.h>
-#include "device_launch_parameters.h"
+#include <hip/hip_runtime.h>
+
 
 #include <chrono>
 #include <cmath>
@@ -45,30 +45,30 @@ __global__ void VectorPerElemMinKernel(const T* first_vector,
 class CudaVectorMin {
 public:
     explicit CudaVectorMin(int32_t size) : vector_size_(size) {
-        cudaMalloc(&device_vector_a_, vector_size_ * sizeof(double));
-        cudaMalloc(&device_vector_b_, vector_size_ * sizeof(double));
-        cudaMalloc(&device_result_, vector_size_ * sizeof(double));
+        hipMalloc(&device_vector_a_, vector_size_ * sizeof(double));
+        hipMalloc(&device_vector_b_, vector_size_ * sizeof(double));
+        hipMalloc(&device_result_, vector_size_ * sizeof(double));
     }
 
     ~CudaVectorMin() {
-        cudaFree(device_vector_a_);
-        cudaFree(device_vector_b_);
-        cudaFree(device_result_);
+        hipFree(device_vector_a_);
+        hipFree(device_vector_b_);
+        hipFree(device_result_);
     }
 
     void CopyDataToDevice(const std::vector<double>& host_vector_a,
                           const std::vector<double>& host_vector_b) {
-        cudaMemcpy(device_vector_a_, host_vector_a.data(), vector_size_ * sizeof(double), cudaMemcpyHostToDevice);
-        cudaMemcpy(device_vector_b_, host_vector_b.data(), vector_size_ * sizeof(double), cudaMemcpyHostToDevice);
+        hipMemcpy(device_vector_a_, host_vector_a.data(), vector_size_ * sizeof(double), hipMemcpyHostToDevice);
+        hipMemcpy(device_vector_b_, host_vector_b.data(), vector_size_ * sizeof(double), hipMemcpyHostToDevice);
     }
 
     void Compute(int blocks, int threads) {
         VectorPerElemMinKernel<<<blocks, threads>>>(device_vector_a_, device_vector_b_, device_result_, vector_size_);
-        cudaDeviceSynchronize();
+        hipDeviceSynchronize();
     }
 
     void CopyDataToHost(std::vector<double>& host_result) {
-        cudaMemcpy(host_result.data(), device_result_, vector_size_ * sizeof(double), cudaMemcpyDeviceToHost);
+        hipMemcpy(host_result.data(), device_result_, vector_size_ * sizeof(double), hipMemcpyDeviceToHost);
     }
 
 private:
@@ -82,22 +82,22 @@ double MeasureCUDA(CudaVectorMin& cuda_vector_min,
                    const std::vector<double>& a,
                    const std::vector<double>& b,
                    int blocks, int threads) {
-    cudaEvent_t start, stop;
+    hipEvent_t start, stop;
     float elapsedTime;
 
-    cudaEventCreate(&start);
-    cudaEventCreate(&stop);
+    hipEventCreate(&start);
+    hipEventCreate(&stop);
 
-    cudaEventRecord(start, 0);
+    hipEventRecord(start, 0);
     cuda_vector_min.CopyDataToDevice(a, b);
     cuda_vector_min.Compute(blocks, threads);
-    cudaEventRecord(stop, 0);
-    cudaEventSynchronize(stop);
+    hipEventRecord(stop, 0);
+    hipEventSynchronize(stop);
 
-    cudaEventElapsedTime(&elapsedTime, start, stop);
+    hipEventElapsedTime(&elapsedTime, start, stop);
 
-    cudaEventDestroy(start);
-    cudaEventDestroy(stop);
+    hipEventDestroy(start);
+    hipEventDestroy(stop);
 
     return elapsedTime;
 }

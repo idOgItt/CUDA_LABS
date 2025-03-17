@@ -43,7 +43,6 @@ __global__ void VectorPerElemMinKernel(const T* first_vector,
     }
 }
 
-template <typename T, typename std::enable_if<std::is_arithmetic<T>::value, int>::type = 0>
 class CudaGraph {
 public:
     CudaGraph() { cudaStreamCreate(&stream_); }
@@ -54,7 +53,7 @@ public:
         cudaStreamDestroy(stream_);
     }
 
-    void Capture(std::function<void(cudaStream_t)> kernel_launcher) {
+    void Capture(const std::function<void(cudaStream_t)> &kernel_launcher) {
         cudaStreamBeginCapture(stream_, cudaStreamCaptureModeGlobal);
         kernel_launcher(stream_);
         cudaStreamEndCapture(stream_, &graph_);
@@ -165,7 +164,7 @@ private:
     void CaptureCudaGraph() {
         int32_t grid_size = numSM_ * 4;
         graph_.Capture([&](cudaStream_t stream) {
-            VectorPerElemMinDouble<<<grid_size, kThreadsPerBlock, 0, stream>>>(
+            VectorPerElemMinKernel<<<grid_size, kThreadsPerBlock, 0, stream>>>(
                 device_vector_a_.Get(), device_vector_b_.Get(),
                 device_result_.Get(), device_data_size_.Get());
         });

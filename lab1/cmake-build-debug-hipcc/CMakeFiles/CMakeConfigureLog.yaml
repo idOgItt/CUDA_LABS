@@ -1,0 +1,764 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      The system is: Linux - 6.12.17-1-MANJARO - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /usr/bin/c++ 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is GNU, found in:
+        /home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdCXX/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1205 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineHIPCompiler.cmake:95 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Checking whether the HIP compiler is NVIDIA using "" did not match "nvcc: NVIDIA \\(R\\) Cuda compiler driver":
+      clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)
+      Target: x86_64-pc-linux-gnu
+      Thread model: posix
+      InstalledDir: /opt/rocm/lib/llvm/bin
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:1192 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineHIPCompiler.cmake:95 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Checking whether the HIP compiler is Clang using "" matched "(clang version)":
+      clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)
+      Target: x86_64-pc-linux-gnu
+      Thread model: posix
+      InstalledDir: /opt/rocm/lib/llvm/bin
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineHIPCompiler.cmake:136 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Compiling the HIP compiler identification source file "CMakeHIPCompilerId.hip" succeeded.
+      Compiler: /opt/rocm/lib/llvm/bin/clang++ 
+      Build flags: 
+      Id flags: -v 
+      
+      The output was:
+      0
+      clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)
+      Target: x86_64-pc-linux-gnu
+      Thread model: posix
+      InstalledDir: /opt/rocm/lib/llvm/bin
+      Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/13.3.1
+      Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1
+      Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/13.3.1
+      Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1
+      Selected GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1
+      Candidate multilib: .;@m64
+      Candidate multilib: 32;@m32
+      Selected multilib: .;@m64
+      Found HIP installation: /opt/rocm, version 6.2.41134
+       "/opt/rocm/lib/llvm/bin/clang-18" -cc1 -triple amdgcn-amd-amdhsa -aux-triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -dumpdir a- -disable-free -clear-ast-before-backend -main-file-name CMakeHIPCompilerId.hip -mrelocation-model pic -pic-level 2 -fhalf-no-semantic-interposition -mframe-pointer=all -fno-rounding-math -mconstructor-aliases -aux-target-cpu x86-64 -fcuda-is-device -mllvm -amdgpu-internalize-symbols -fcuda-allow-variadic-functions -fvisibility=hidden -fapply-global-visibility-to-externs -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/hip.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/ocml.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/ockl.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_daz_opt_off.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_unsafe_math_off.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_finite_only_off.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_correctly_rounded_sqrt_on.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_wavefrontsize64_on.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_isa_version_906.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_abi_version_500.bc -target-cpu gfx906 -debugger-tuning=gdb -fdebug-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdHIP -v -resource-dir /opt/rocm/lib/llvm/lib/clang/18 -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers -idirafter /opt/rocm/include -include __clang_hip_runtime_wrapper.h -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fno-autolink -ferror-limit 19 -fhip-new-launch-api -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -cuid=30126eb99398b0bb -fcuda-allow-variadic-functions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /tmp/CMakeHIPCompilerId-gfx906-fe0186.o -x hip CMakeHIPCompilerId.hip
+      clang -cc1 version 18.0.0git based upon LLVM 18.0.0git default target x86_64-pc-linux-gnu
+      ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"
+      ignoring nonexistent directory "/include"
+      ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"
+      ignoring nonexistent directory "/include"
+      ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1"
+      ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu"
+      ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward"
+      ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"
+      ignoring duplicate directory "/usr/local/include"
+      ignoring duplicate directory "/usr/include"
+      ignoring duplicate directory "/usr/local/include"
+      ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"
+      ignoring duplicate directory "/usr/include"
+      #include "..." search starts here:
+      #include <...> search starts here:
+       /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers
+       /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1
+       /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu
+       /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward
+       /opt/rocm/lib/llvm/lib/clang/18/include
+       /usr/local/include
+       /usr/include
+       /opt/rocm/include
+      End of search list.
+       "/opt/rocm/lib/llvm/bin/lld" -flavor gnu -m elf64_amdgpu --no-undefined -shared -plugin-opt=-amdgpu-internalize-symbols -plugin-opt=mcpu=gfx906 --whole-archive -o /tmp/CMakeHIPCompilerId-gfx906-0591d3.out /tmp/CMakeHIPCompilerId-gfx906-fe0186.o --no-whole-archive
+       "/opt/rocm/lib/llvm/bin/clang-offload-bundler" -type=o -bundle-align=4096 -targets=host-x86_64-unknown-linux,hipv4-amdgcn-amd-amdhsa--gfx906 -input=/dev/null -input=/tmp/CMakeHIPCompilerId-gfx906-0591d3.out -output=/tmp/CMakeHIPCompilerId-5d2b53.hipfb -verbose
+       "/opt/rocm/lib/llvm/bin/clang-18" -cc1 -triple x86_64-pc-linux-gnu -aux-triple amdgcn-amd-amdhsa -emit-obj -mrelax-all -dumpdir a- -disable-free -clear-ast-before-backend -main-file-name CMakeHIPCompilerId.hip -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdHIP -v -fcoverage-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdHIP -resource-dir /opt/rocm/lib/llvm/lib/clang/18 -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers -idirafter /opt/rocm/include -include __clang_hip_runtime_wrapper.h -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fhip-new-launch-api -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fcuda-include-gpubinary /tmp/CMakeHIPCompilerId-5d2b53.hipfb -cuid=30126eb99398b0bb -fcuda-allow-variadic-functions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /tmp/CMakeHIPCompilerId-501dce.o -x hip CMakeHIPCompilerId.hip
+      clang -cc1 version 18.0.0git based upon LLVM 18.0.0git default target x86_64-pc-linux-gnu
+      ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"
+      ignoring nonexistent directory "/include"
+      ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"
+      ignoring nonexistent directory "/include"
+      ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1"
+      ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu"
+      ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward"
+      ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"
+      ignoring duplicate directory "/usr/local/include"
+      ignoring duplicate directory "/usr/include"
+      #include "..." search starts here:
+      #include <...> search starts here:
+       /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers
+       /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1
+       /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu
+       /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward
+       /opt/rocm/lib/llvm/lib/clang/18/include
+       /usr/local/include
+       /usr/include
+       /opt/rocm/include
+      End of search list.
+       "/opt/rocm/lib/llvm/bin/ld.lld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o a.out /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/Scrt1.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib /tmp/CMakeHIPCompilerId-501dce.o -L/opt/rocm/lib -lamdhip64 -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crtn.o
+      
+      
+      Compilation of the HIP compiler identification source "CMakeHIPCompilerId.hip" produced "a.out"
+      
+      The HIP compiler identification is Clang, found in:
+        /home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdHIP/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineHIPCompiler.cmake:188 (message)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed HIP implicit link information from compiler id output:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /opt/rocm/lib/llvm/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/13.3.1]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/13.3.1]
+        ignore line: [Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Selected GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Candidate multilib: 32]
+        ignore line: [@m32]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [Found HIP installation: /opt/rocm  version 6.2.41134]
+        ignore line: [ "/opt/rocm/lib/llvm/bin/clang-18" -cc1 -triple amdgcn-amd-amdhsa -aux-triple x86_64-pc-linux-gnu -emit-obj -mrelax-all -dumpdir a- -disable-free -clear-ast-before-backend -main-file-name CMakeHIPCompilerId.hip -mrelocation-model pic -pic-level 2 -fhalf-no-semantic-interposition -mframe-pointer=all -fno-rounding-math -mconstructor-aliases -aux-target-cpu x86-64 -fcuda-is-device -mllvm -amdgpu-internalize-symbols -fcuda-allow-variadic-functions -fvisibility=hidden -fapply-global-visibility-to-externs -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/hip.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/ocml.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/ockl.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_daz_opt_off.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_unsafe_math_off.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_finite_only_off.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_correctly_rounded_sqrt_on.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_wavefrontsize64_on.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_isa_version_906.bc -mlink-builtin-bitcode /opt/rocm/amdgcn/bitcode/oclc_abi_version_500.bc -target-cpu gfx906 -debugger-tuning=gdb -fdebug-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdHIP -v -resource-dir /opt/rocm/lib/llvm/lib/clang/18 -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers -idirafter /opt/rocm/include -include __clang_hip_runtime_wrapper.h -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fno-autolink -ferror-limit 19 -fhip-new-launch-api -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -cuid=30126eb99398b0bb -fcuda-allow-variadic-functions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /tmp/CMakeHIPCompilerId-gfx906-fe0186.o -x hip CMakeHIPCompilerId.hip]
+        ignore line: [clang -cc1 version 18.0.0git based upon LLVM 18.0.0git default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward"]
+        ignore line: [ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"]
+        ignore line: [ignoring duplicate directory "/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/usr/include"]
+        ignore line: [ignoring duplicate directory "/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"]
+        ignore line: [ignoring duplicate directory "/usr/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward]
+        ignore line: [ /opt/rocm/lib/llvm/lib/clang/18/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [ /opt/rocm/include]
+        ignore line: [End of search list.]
+        ignore line: [ "/opt/rocm/lib/llvm/bin/lld" -flavor gnu -m elf64_amdgpu --no-undefined -shared -plugin-opt=-amdgpu-internalize-symbols -plugin-opt=mcpu=gfx906 --whole-archive -o /tmp/CMakeHIPCompilerId-gfx906-0591d3.out /tmp/CMakeHIPCompilerId-gfx906-fe0186.o --no-whole-archive]
+        ignore line: [ "/opt/rocm/lib/llvm/bin/clang-offload-bundler" -type=o -bundle-align=4096 -targets=host-x86_64-unknown-linux hipv4-amdgcn-amd-amdhsa--gfx906 -input=/dev/null -input=/tmp/CMakeHIPCompilerId-gfx906-0591d3.out -output=/tmp/CMakeHIPCompilerId-5d2b53.hipfb -verbose]
+        ignore line: [ "/opt/rocm/lib/llvm/bin/clang-18" -cc1 -triple x86_64-pc-linux-gnu -aux-triple amdgcn-amd-amdhsa -emit-obj -mrelax-all -dumpdir a- -disable-free -clear-ast-before-backend -main-file-name CMakeHIPCompilerId.hip -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdHIP -v -fcoverage-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/3.30.5/CompilerIdHIP -resource-dir /opt/rocm/lib/llvm/lib/clang/18 -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers -idirafter /opt/rocm/include -include __clang_hip_runtime_wrapper.h -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fhip-new-launch-api -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fcuda-include-gpubinary /tmp/CMakeHIPCompilerId-5d2b53.hipfb -cuid=30126eb99398b0bb -fcuda-allow-variadic-functions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o /tmp/CMakeHIPCompilerId-501dce.o -x hip CMakeHIPCompilerId.hip]
+        ignore line: [clang -cc1 version 18.0.0git based upon LLVM 18.0.0git default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward"]
+        ignore line: [ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"]
+        ignore line: [ignoring duplicate directory "/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/usr/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward]
+        ignore line: [ /opt/rocm/lib/llvm/lib/clang/18/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [ /opt/rocm/include]
+        ignore line: [End of search list.]
+        link line: [ "/opt/rocm/lib/llvm/bin/ld.lld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o a.out /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/Scrt1.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crti.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib /tmp/CMakeHIPCompilerId-501dce.o -L/opt/rocm/lib -lamdhip64 -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crtn.o]
+          arg [/opt/rocm/lib/llvm/bin/ld.lld] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [a.out] ==> ignore
+          arg [-L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1] ==> dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+          arg [-L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64] ==> dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [-L/opt/rocm/lib] ==> dir [/opt/rocm/lib]
+          arg [-lamdhip64] ==> lib [amdhip64]
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+        collapse library dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1] ==> [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        collapse library dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        collapse library dir [/opt/rocm/lib] ==> [/opt/rocm/lib]
+        implicit libs: [amdhip64;stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: []
+        implicit dirs: [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1;/usr/lib64;/lib64;/lib;/usr/lib;/opt/rocm/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-d3GGpB"
+      binary: "/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-d3GGpB"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_HIP_ARCHITECTURES: "gfx90c"
+      CMAKE_HIP_PLATFORM: "amd"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-d3GGpB'
+        
+        Run Build Command(s): /opt/clion/bin/ninja/linux/x64/ninja -v cmTC_d0db0
+        [1/2] /usr/bin/c++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -c /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        Target: x86_64-pc-linux-gnu
+        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.1 20250207 (GCC) 
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0db0.dir/'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/cc1plus -quiet -v -D_GNU_SOURCE /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d0db0.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o /tmp/ccEymhDk.s
+        GNU C++17 (GCC) version 14.2.1 20250207 (x86_64-pc-linux-gnu)
+        	compiled by GNU C version 14.2.1 20250207, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.27-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1
+         /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu
+         /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward
+         /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include
+         /usr/local/include
+         /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed
+         /usr/include
+        End of search list.
+        Compiler executable checksum: bbdc9fcb26e32fbe61551147f27ba644
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0db0.dir/'
+         as -v --64 -o CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccEymhDk.s
+        GNU assembler version 2.44 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.'
+        [2/2] : && /usr/bin/c++  -v -Wl,-v CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_d0db0   && :
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/c++
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/lto-wrapper
+        Target: x86_64-pc-linux-gnu
+        Configured with: /build/gcc/src/gcc/configure --enable-languages=ada,c,c++,d,fortran,go,lto,m2,objc,obj-c++,rust --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror
+        Thread model: posix
+        Supported LTO compression algorithms: zlib zstd
+        gcc version 14.2.1 20250207 (GCC) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d0db0' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d0db0.'
+         /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXonDRi.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0db0 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../.. -v CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crtn.o
+        collect2 version 14.2.1 20250207
+        /usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXonDRi.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0db0 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../.. -v CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crtn.o
+        GNU ld (GNU Binutils) 2.44
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d0db0' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d0db0.'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include]
+          add: [/usr/local/include]
+          add: [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1] ==> [/usr/include/c++/14.2.1]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu] ==> [/usr/include/c++/14.2.1/x86_64-pc-linux-gnu]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward] ==> [/usr/include/c++/14.2.1/backward]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/include/c++/14.2.1;/usr/include/c++/14.2.1/x86_64-pc-linux-gnu;/usr/include/c++/14.2.1/backward;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include;/usr/local/include;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-d3GGpB']
+        ignore line: []
+        ignore line: [Run Build Command(s): /opt/clion/bin/ninja/linux/x64/ninja -v cmTC_d0db0]
+        ignore line: [[1/2] /usr/bin/c++   -fdiagnostics-color=always   -v -o CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -c /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.1 20250207 (GCC) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0db0.dir/']
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/cc1plus -quiet -v -D_GNU_SOURCE /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d0db0.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -fdiagnostics-color=always -o /tmp/ccEymhDk.s]
+        ignore line: [GNU C++17 (GCC) version 14.2.1 20250207 (x86_64-pc-linux-gnu)]
+        ignore line: [	compiled by GNU C version 14.2.1 20250207  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version isl-0.27-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include-fixed]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Compiler executable checksum: bbdc9fcb26e32fbe61551147f27ba644]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0db0.dir/']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccEymhDk.s]
+        ignore line: [GNU assembler version 2.44 (x86_64-pc-linux-gnu) using BFD version (GNU Binutils) 2.44]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-fdiagnostics-color=always' '-v' '-o' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [[2/2] : && /usr/bin/c++  -v -Wl -v CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_d0db0   && :]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/c++]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/lto-wrapper]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Configured with: /build/gcc/src/gcc/configure --enable-languages=ada c c++ d fortran go lto m2 objc obj-c++ rust --enable-bootstrap --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://gitlab.archlinux.org/archlinux/packaging/packages/gcc/-/issues --with-build-config=bootstrap-lto --with-linker-hash-style=gnu --with-system-zlib --enable-__cxa_atexit --enable-cet=auto --enable-checking=release --enable-clocale=gnu --enable-default-pie --enable-default-ssp --enable-gnu-indirect-function --enable-gnu-unique-object --enable-libstdcxx-backtrace --enable-link-serialization=1 --enable-linker-build-id --enable-lto --enable-multilib --enable-plugin --enable-shared --enable-threads=posix --disable-libssp --disable-libstdcxx-pch --disable-werror]
+        ignore line: [Thread model: posix]
+        ignore line: [Supported LTO compression algorithms: zlib zstd]
+        ignore line: [gcc version 14.2.1 20250207 (GCC) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_d0db0' '-shared-libgcc' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_d0db0.']
+        link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXonDRi.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0db0 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../.. -v CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crtn.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccXonDRi.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_d0db0] ==> ignore
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crti.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crti.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../..]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [-lc] ==> lib [c]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lgcc] ==> lib [gcc]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crtn.o] ==> obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crtn.o]
+        ignore line: [collect2 version 14.2.1 20250207]
+        ignore line: [/usr/bin/ld -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXonDRi.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_d0db0 /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../.. -v CMakeFiles/cmTC_d0db0.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crtn.o]
+        linker tool for 'CXX': /usr/bin/ld
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/Scrt1.o] ==> [/usr/lib/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crti.o] ==> [/usr/lib/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib/crtn.o] ==> [/usr/lib/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/../../..] ==> [/usr/lib]
+        implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+        implicit objs: [/usr/lib/Scrt1.o;/usr/lib/crti.o;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtbeginS.o;/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/crtendS.o;/usr/lib/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1;/usr/lib;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the CXX compiler's linker: "/usr/bin/ld" "-v"
+      GNU ld (GNU Binutils) 2.44
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:74 (try_compile)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestHIPCompiler.cmake:32 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    checks:
+      - "Detecting HIP compiler ABI info"
+    directories:
+      source: "/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o"
+      binary: "/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o"
+    cmakeVariables:
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_HIP_ARCHITECTURES: "gfx90c"
+      CMAKE_HIP_FLAGS: " --cuda-host-only"
+      CMAKE_HIP_FLAGS_DEBUG: "-g -O"
+      CMAKE_HIP_PLATFORM: "amd"
+      CMAKE_HIP_RUNTIME_LIBRARY: "Static"
+    buildResult:
+      variable: "CMAKE_HIP_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o'
+        
+        Run Build Command(s): /opt/clion/bin/ninja/linux/x64/ninja -v cmTC_5861b
+        [1/2] /opt/rocm/lib/llvm/bin/clang++  -D__HIP_ROCclr__=1 -isystem /opt/rocm/include --cuda-host-only  --offload-arch=gfx90c -fcolor-diagnostics   -v -MD -MT CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -MF CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o.d -o CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -x hip -c /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeHIPCompilerABI.hip
+        clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /opt/rocm/lib/llvm/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/13.3.1
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1
+        Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/13.3.1
+        Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1
+        Selected GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1
+        Candidate multilib: .;@m64
+        Candidate multilib: 32;@m32
+        Selected multilib: .;@m64
+        Found HIP installation: /opt/rocm, version 6.2.41134
+         (in-process)
+         "/opt/rocm/lib/llvm/bin/clang-18" -cc1 -triple x86_64-pc-linux-gnu -aux-triple amdgcn-amd-amdhsa -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -main-file-name CMakeHIPCompilerABI.hip -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o -v -fcoverage-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o -resource-dir /opt/rocm/lib/llvm/lib/clang/18 -dependency-file CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o.d -MT CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -sys-header-deps -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers -idirafter /opt/rocm/include -include __clang_hip_runtime_wrapper.h -isystem /opt/rocm/include -D __HIP_ROCclr__=1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fhip-new-launch-api -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fcolor-diagnostics -fcuda-allow-variadic-functions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -x hip /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeHIPCompilerABI.hip
+        clang -cc1 version 18.0.0git based upon LLVM 18.0.0git default target x86_64-pc-linux-gnu
+        ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"
+        ignoring nonexistent directory "/include"
+        ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"
+        ignoring nonexistent directory "/include"
+        ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1"
+        ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu"
+        ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward"
+        ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"
+        ignoring duplicate directory "/usr/local/include"
+        ignoring duplicate directory "/usr/include"
+        ignoring duplicate directory "/opt/rocm/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /opt/rocm/include
+         /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers
+         /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1
+         /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu
+         /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward
+         /opt/rocm/lib/llvm/lib/clang/18/include
+         /usr/local/include
+         /usr/include
+        End of search list.
+        [2/2] : && /opt/rocm/lib/llvm/bin/clang++ --cuda-host-only  --offload-arch=gfx90c -v   --hip-link --rtlib=compiler-rt -unwindlib=libgcc CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -o cmTC_5861b  /opt/rocm/lib/libamdhip64.so.6.2.41134 && :
+        clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /opt/rocm/lib/llvm/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/13.3.1
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1
+        Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/13.3.1
+        Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1
+        Selected GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1
+        Candidate multilib: .;@m64
+        Candidate multilib: 32;@m32
+        Selected multilib: .;@m64
+        Found HIP installation: /opt/rocm, version 6.2.41134
+         "/opt/rocm/lib/llvm/bin/ld.lld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5861b /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/Scrt1.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crti.o /opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtbegin-x86_64.o -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o /opt/rocm/lib/libamdhip64.so.6.2.41134 -L/opt/rocm/lib -lamdhip64 -lstdc++ -lm /opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a -lgcc_s -lc /opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a -lgcc_s /opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtend-x86_64.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crtn.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:182 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestHIPCompiler.cmake:32 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed HIP implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/opt/rocm/include]
+          add: [/opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers]
+          add: [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1]
+          add: [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu]
+          add: [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward]
+          add: [/opt/rocm/lib/llvm/lib/clang/18/include]
+          add: [/usr/local/include]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/opt/rocm/include] ==> [/opt/rocm/include]
+        collapse include dir [/opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers] ==> [/opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers]
+        collapse include dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1] ==> [/usr/include/c++/14.2.1]
+        collapse include dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu] ==> [/usr/include/c++/14.2.1/x86_64-pc-linux-gnu]
+        collapse include dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward] ==> [/usr/include/c++/14.2.1/backward]
+        collapse include dir [/opt/rocm/lib/llvm/lib/clang/18/include] ==> [/opt/rocm/lib/llvm/lib/clang/18/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/opt/rocm/include;/opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers;/usr/include/c++/14.2.1;/usr/include/c++/14.2.1/x86_64-pc-linux-gnu;/usr/include/c++/14.2.1/backward;/opt/rocm/lib/llvm/lib/clang/18/include;/usr/local/include;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:218 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestHIPCompiler.cmake:32 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Parsed HIP implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: '/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o']
+        ignore line: []
+        ignore line: [Run Build Command(s): /opt/clion/bin/ninja/linux/x64/ninja -v cmTC_5861b]
+        ignore line: [[1/2] /opt/rocm/lib/llvm/bin/clang++  -D__HIP_ROCclr__=1 -isystem /opt/rocm/include --cuda-host-only  --offload-arch=gfx90c -fcolor-diagnostics   -v -MD -MT CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -MF CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o.d -o CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -x hip -c /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeHIPCompilerABI.hip]
+        ignore line: [clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /opt/rocm/lib/llvm/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/13.3.1]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/13.3.1]
+        ignore line: [Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Selected GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Candidate multilib: 32]
+        ignore line: [@m32]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [Found HIP installation: /opt/rocm  version 6.2.41134]
+        ignore line: [ (in-process)]
+        ignore line: [ "/opt/rocm/lib/llvm/bin/clang-18" -cc1 -triple x86_64-pc-linux-gnu -aux-triple amdgcn-amd-amdhsa -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -main-file-name CMakeHIPCompilerABI.hip -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -fdebug-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o -v -fcoverage-compilation-dir=/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-jowZ7o -resource-dir /opt/rocm/lib/llvm/lib/clang/18 -dependency-file CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o.d -MT CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -sys-header-deps -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers -idirafter /opt/rocm/include -include __clang_hip_runtime_wrapper.h -isystem /opt/rocm/include -D __HIP_ROCclr__=1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1 -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -internal-isystem /opt/rocm/lib/llvm/lib/clang/18/include -internal-isystem /usr/local/include -internal-isystem /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -ferror-limit 19 -fhip-new-launch-api -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -fcolor-diagnostics -fcuda-allow-variadic-functions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -x hip /opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeHIPCompilerABI.hip]
+        ignore line: [clang -cc1 version 18.0.0git based upon LLVM 18.0.0git default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [ignoring nonexistent directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../x86_64-pc-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu"]
+        ignore line: [ignoring duplicate directory "/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward"]
+        ignore line: [ignoring duplicate directory "/opt/rocm/lib/llvm/lib/clang/18/include"]
+        ignore line: [ignoring duplicate directory "/usr/local/include"]
+        ignore line: [ignoring duplicate directory "/usr/include"]
+        ignore line: [ignoring duplicate directory "/opt/rocm/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /opt/rocm/include]
+        ignore line: [ /opt/rocm/lib/llvm/lib/clang/18/include/cuda_wrappers]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/x86_64-pc-linux-gnu]
+        ignore line: [ /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../include/c++/14.2.1/backward]
+        ignore line: [ /opt/rocm/lib/llvm/lib/clang/18/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /opt/rocm/lib/llvm/bin/clang++ --cuda-host-only  --offload-arch=gfx90c -v   --hip-link --rtlib=compiler-rt -unwindlib=libgcc CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o -o cmTC_5861b  /opt/rocm/lib/libamdhip64.so.6.2.41134 && :]
+        ignore line: [clang version 18.0.0git (/srcdest/rocm-llvm 1e2c94795ee0d6ab8e2ff3035965a6b74e11b475)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /opt/rocm/lib/llvm/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/13.3.1]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/13.3.1]
+        ignore line: [Found candidate GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Selected GCC installation: /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Candidate multilib: 32]
+        ignore line: [@m32]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [Found HIP installation: /opt/rocm  version 6.2.41134]
+        link line: [ "/opt/rocm/lib/llvm/bin/ld.lld" --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -pie -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_5861b /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/Scrt1.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crti.o /opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtbegin-x86_64.o -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1 -L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o /opt/rocm/lib/libamdhip64.so.6.2.41134 -L/opt/rocm/lib -lamdhip64 -lstdc++ -lm /opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a -lgcc_s -lc /opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a -lgcc_s /opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtend-x86_64.o /usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crtn.o]
+          arg [/opt/rocm/lib/llvm/bin/ld.lld] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_5861b] ==> ignore
+          arg [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/Scrt1.o] ==> obj [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/Scrt1.o]
+          arg [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crti.o] ==> obj [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crti.o]
+          arg [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtbegin-x86_64.o] ==> obj [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtbegin-x86_64.o]
+          arg [-L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1] ==> dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+          arg [-L/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64] ==> dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [CMakeFiles/cmTC_5861b.dir/CMakeHIPCompilerABI.hip.o] ==> ignore
+          arg [/opt/rocm/lib/libamdhip64.so.6.2.41134] ==> ignore
+          arg [-L/opt/rocm/lib] ==> dir [/opt/rocm/lib]
+          arg [-lamdhip64] ==> lib [amdhip64]
+          arg [-lstdc++] ==> lib [stdc++]
+          arg [-lm] ==> lib [m]
+          arg [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a] ==> lib [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [-lc] ==> lib [c]
+          arg [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a] ==> lib [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a]
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtend-x86_64.o] ==> obj [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtend-x86_64.o]
+          arg [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crtn.o] ==> obj [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crtn.o]
+        linker tool for 'HIP': /opt/rocm/lib/llvm/bin/ld.lld
+        remove lib [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a]
+        remove lib [/opt/rocm/lib/llvm/lib/clang/18/lib/linux/libclang_rt.builtins-x86_64.a]
+        collapse obj [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/Scrt1.o] ==> [/usr/lib64/Scrt1.o]
+        collapse obj [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crti.o] ==> [/usr/lib64/crti.o]
+        collapse obj [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64/crtn.o] ==> [/usr/lib64/crtn.o]
+        collapse library dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1] ==> [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1]
+        collapse library dir [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        collapse library dir [/opt/rocm/lib] ==> [/opt/rocm/lib]
+        implicit libs: [amdhip64;stdc++;m;gcc_s;c;gcc_s]
+        implicit objs: [/usr/lib64/Scrt1.o;/usr/lib64/crti.o;/opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtbegin-x86_64.o;/opt/rocm/lib/llvm/lib/clang/18/lib/linux/clang_rt.crtend-x86_64.o;/usr/lib64/crtn.o]
+        implicit dirs: [/usr/lib64/gcc/x86_64-pc-linux-gnu/14.2.1;/usr/lib64;/lib64;/lib;/usr/lib;/opt/rocm/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeDetermineCompilerABI.cmake:255 (cmake_determine_linker_id)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeTestHIPCompiler.cmake:32 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:3 (project)"
+    message: |
+      Running the HIP compiler's linker: "/opt/rocm/lib/llvm/bin/ld.lld" "-v"
+      LLD 18.0.0 (compatible with GNU linkers)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/FindThreads.cmake:99 (CHECK_CXX_SOURCE_COMPILES)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "/opt/clion/bin/cmake/linux/x64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/opt/rocm/lib/cmake/hip/hip-config-amd.cmake:109 (find_dependency)"
+      - "/opt/rocm/lib/cmake/hip/hip-config.cmake:149 (include)"
+      - "CMakeLists.txt:15 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-xKaG8B"
+      binary: "/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-xKaG8B"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_HIP_ARCHITECTURES: "gfx90c"
+      CMAKE_HIP_PLATFORM: "amd"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-xKaG8B'
+        
+        Run Build Command(s): /opt/clion/bin/ninja/linux/x64/ninja -v cmTC_817d5
+        [1/2] /usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=gnu++23 -fdiagnostics-color=always -o CMakeFiles/cmTC_817d5.dir/src.cxx.o -c /home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/CMakeScratch/TryCompile-xKaG8B/src.cxx
+        [2/2] : && /usr/bin/c++   CMakeFiles/cmTC_817d5.dir/src.cxx.o -o cmTC_817d5   && :
+        
+      exitCode: 0
+...
