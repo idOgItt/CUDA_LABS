@@ -1,3 +1,0 @@
-/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/lab1.dir
-/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/edit_cache.dir
-/home/sergey/CLionProjects/CUDA_C++/lab1/cmake-build-debug-hipcc/CMakeFiles/rebuild_cache.dir

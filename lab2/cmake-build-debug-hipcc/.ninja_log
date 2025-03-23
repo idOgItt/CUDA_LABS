@@ -1,0 +1,5 @@
+# ninja log v6
+1	1056	1742739948444057477	lab2.cpp	95b2af53e8d9a7b
+1	1056	1742739948444057477	/home/sergey/CLionProjects/CUDA_C++/lab2/cmake-build-debug-hipcc/lab2.cpp	95b2af53e8d9a7b
+1057	6260	1742739948450730556	CMakeFiles/lab2.dir/lab2.cpp.o	de37d5bbe4e3761c
+6260	6299	1742739953655547580	lab2	e9779fd70f73ba9f
