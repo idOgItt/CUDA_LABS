@@ -1,3 +1,0 @@
-/home/sergey/CLionProjects/CUDA_C++/lab2/cmake-build-release/CMakeFiles/lab2.dir
-/home/sergey/CLionProjects/CUDA_C++/lab2/cmake-build-release/CMakeFiles/edit_cache.dir
-/home/sergey/CLionProjects/CUDA_C++/lab2/cmake-build-release/CMakeFiles/rebuild_cache.dir

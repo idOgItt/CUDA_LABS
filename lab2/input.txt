@@ -1,1 +1,1 @@
-in.data out.data
+input.png output.png

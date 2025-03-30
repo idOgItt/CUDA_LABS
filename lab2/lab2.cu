@@ -13,6 +13,9 @@
 #include <type_traits>
 #include <vector>
 
+// Подключаем OpenCV для работы с изображениями (например, PNG)
+#include <opencv2/opencv.hpp>
+
 struct IOPaths {
     std::string inputFile;
     std::string outputFile;
@@ -265,22 +268,58 @@ private:
     cuda_utils::CudaGraph graph_;
 };
 
+//
+// Функция ReadImage использует OpenCV для загрузки изображений (например, PNG)
+// и преобразует их в формат RGBA (uchar4), необходимый для обработки на GPU.
+//
 void ReadImage(const std::string &path, uint32_t &width, uint32_t &height, std::vector<uchar4> &data) {
-    std::ifstream file(path, std::ios::binary);
-    if (!file) throw std::runtime_error("Failed to open input file: " + path);
-    file.read(reinterpret_cast<char *>(&width), sizeof(uint32_t));
-    file.read(reinterpret_cast<char *>(&height), sizeof(uint32_t));
+    cv::Mat img = cv::imread(path, cv::IMREAD_UNCHANGED);
+    if (img.empty()) {
+        throw std::runtime_error("Failed to load image: " + path);
+    }
+
+    cv::Mat imgRGBA;
+    if (img.channels() == 1) {
+        cv::cvtColor(img, imgRGBA, cv::COLOR_GRAY2RGBA);
+    } else if (img.channels() == 3) {
+        // OpenCV по умолчанию загружает изображение в формате BGR
+        cv::cvtColor(img, imgRGBA, cv::COLOR_BGR2RGBA);
+    } else if (img.channels() == 4) {
+        // Преобразуем BGRA в RGBA
+        cv::cvtColor(img, imgRGBA, cv::COLOR_BGRA2RGBA);
+    } else {
+        throw std::runtime_error("Unsupported image format");
+    }
+
+    if (!imgRGBA.isContinuous()) {
+        imgRGBA = imgRGBA.clone();
+    }
+
+    width = static_cast<uint32_t>(imgRGBA.cols);
+    height = static_cast<uint32_t>(imgRGBA.rows);
     const std::size_t numPixels = static_cast<std::size_t>(width) * height;
     data.resize(numPixels);
-    file.read(reinterpret_cast<char *>(data.data()), numPixels * sizeof(uchar4));
+    std::memcpy(data.data(), imgRGBA.data, numPixels * sizeof(uchar4));
 }
 
+//
+// Функция WriteImage сохраняет обработанное изображение в формате PNG.
+// Если указанное имя файла не содержит расширения ".png", оно дополняется автоматически.
+//
 void WriteImage(const std::string &path, const uint32_t width, const uint32_t height, const std::vector<uchar4> &data) {
-    std::ofstream file(path, std::ios::binary);
-    if (!file) throw std::runtime_error("Failed to open output file: " + path);
-    file.write(reinterpret_cast<const char *>(&width), sizeof(uint32_t));
-    file.write(reinterpret_cast<const char *>(&height), sizeof(uint32_t));
-    file.write(reinterpret_cast<const char *>(data.data()), data.size() * sizeof(uchar4));
+    std::string outPath = path;
+    // Проверяем, содержит ли имя файла расширение ".png"
+    if (outPath.size() < 4 || outPath.substr(outPath.size() - 4) != ".png") {
+        outPath += ".png";
+    }
+
+    // Создаем Mat из обработанных данных (RGBA)
+    cv::Mat imgRGBA(height, width, CV_8UC4, const_cast<uchar4*>(data.data()));
+    cv::Mat imgBGRA;
+    cv::cvtColor(imgRGBA, imgBGRA, cv::COLOR_RGBA2BGRA);
+    if (!cv::imwrite(outPath, imgBGRA)) {
+        throw std::runtime_error("Failed to write image: " + outPath);
+    }
 }
 
 IOPaths ReadInputOutputPaths() {
@@ -289,13 +328,11 @@ IOPaths ReadInputOutputPaths() {
     return paths;
 }
 
-
 int main() {
     try {
         IOPaths paths = ReadInputOutputPaths();
         const std::string &inputFile = paths.inputFile;
         const std::string &outputFile = paths.outputFile;
-
 
         uint32_t width = 0, height = 0;
         std::vector<uchar4> imageData;
